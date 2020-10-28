@@ -8,43 +8,44 @@ export function Navigation() {
 	const { pathname } = useLocation();
 
 	const nav = [
-		{ name: 'Home', url: '/' },
+		{ name: 'Editor', url: '/' },
 		{ name: 'Settings', url: '/settings' },
 		{ name: 'About', url: '/about' },
 	];
 
 	return (
-		<ul
-			css={{
-				listStyle: 'none',
-				display: 'block',
-				padding: '0 5rem 0 0',
-				margin: 0,
-			}}
-		>
-			{nav.map(({ name, url }) => (
-				<li
-					key={url}
-					css={{
-						display: 'inline-block',
-						margin: '0 0.5rem',
-					}}
-				>
-					<Link
-						to={url}
+		<nav>
+			<ul
+				css={{
+					listStyle: 'none',
+					display: 'block',
+					padding: '0 5rem 0 0',
+					margin: 0,
+				}}
+			>
+				{nav.map(({ name, url }) => (
+					<li
+						key={url}
 						css={{
 							display: 'inline-block',
-							fontWeight: pathname === url ? 900 : 400,
-							padding: '1rem',
-							':hover': {
-								textDecoration: 'none',
-							},
+							margin: '0 0.5rem',
 						}}
 					>
-						{name}
-					</Link>
-				</li>
-			))}
-		</ul>
+						<Link
+							to={url}
+							css={{
+								display: 'inline-block',
+								fontWeight: pathname === url ? 900 : 400,
+								':hover': {
+									textDecoration: 'none',
+								},
+							}}
+						>
+							{name}
+						</Link>
+					</li>
+				))}
+			</ul>
+		</nav>
 	);
 }

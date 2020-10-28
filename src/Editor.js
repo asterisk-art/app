@@ -3,10 +3,14 @@
 
 import { jsx } from '@emotion/core';
 
-export function About() {
+import { Wrapper } from './Wrapper';
+
+export function Editor() {
 	return (
 		<div>
-			<h1>About</h1>
+			<h2>Editor</h2>
+
+			<Wrapper />
 		</div>
 	);
 }

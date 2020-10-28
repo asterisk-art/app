@@ -5,8 +5,8 @@ import { jsx } from '@emotion/core';
 
 export function Settings() {
 	return (
-		<section>
+		<div>
 			<h1>Settings</h1>
-		</section>
+		</div>
 	);
 }

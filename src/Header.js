@@ -4,13 +4,16 @@
 import { jsx } from '@emotion/core';
 
 import { useTheme } from './App';
+import { Navigation } from './Navigation';
 
-export function Home() {
+export function Header() {
 	const { theme, setTheme } = useTheme();
 
 	return (
-		<section>
-			<h1>Home</h1>
+		<header>
+			<h1>Logo</h1>
+
+			<Navigation />
 
 			<button
 				onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -25,6 +28,6 @@ export function Home() {
 			>
 				Switch theme
 			</button>
-		</section>
+		</header>
 	);
 }

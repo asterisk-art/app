@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom';
 import { App } from './App';
 import React from 'react';
 
+import { normalize } from './assets/reset';
+
 ReactDOM.render(
 	<React.StrictMode>
+		<Global styles={normalize} />
 		<Global
 			styles={{
 				html: {

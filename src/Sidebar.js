@@ -3,10 +3,10 @@
 
 import { jsx } from '@emotion/core';
 
-export function About() {
+export function Sidebar() {
 	return (
-		<div>
-			<h1>About</h1>
-		</div>
+		<aside>
+			<h2>Sidebar</h2>
+		</aside>
 	);
 }
