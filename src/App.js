@@ -45,7 +45,10 @@ export function App() {
 				Hello world
 				<button
 					onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-					css={{ background: 'var(--action)' }}
+					css={{
+						background: 'var(--action)',
+						margin: '1rem',
+					}}
 				>
 					Switch theme
 				</button>
