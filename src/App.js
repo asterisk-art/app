@@ -10,7 +10,9 @@ import { Header } from './Header';
 import { Editor } from './Editor';
 import { Settings } from './Settings';
 import COLORS from './tokens/colors.json';
+import * as importedLayers from './layer';
 
+// The theme context
 const ThemeContext = createContext();
 export const useTheme = () => {
 	const context = useContext(ThemeContext);
@@ -20,6 +22,7 @@ export const useTheme = () => {
 	return context;
 };
 
+// The global context for state lifted to this level
 const GlobalContext = createContext();
 export const useGlobal = () => {
 	const context = useContext(GlobalContext);
@@ -33,9 +36,10 @@ export function App() {
 	const [theme, setTheme] = useState(
 		window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 	);
-	const [layer, setLayer] = useState([]);
-	const [settings, setSettings] = useState({});
+	const [layer, setLayer] = useState(importedLayers); // all supported layers and their settings
+	const [settings, setSettings] = useState({}); // the app settings
 
+	// switch theme mode when os mode changes
 	useEffect(() => {
 		const modeListener = (event) => {
 			if (event.matches) {

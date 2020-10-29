@@ -3,10 +3,14 @@
 
 import { jsx } from '@emotion/core';
 
-export function Canvas() {
+import { useGlobal } from './App';
+
+export function Canvas({ canvas }) {
+	const { layer, settings } = useGlobal();
+
 	return (
 		<div>
-			<h1>Canvas</h1>
+			<h2>Canvas</h2>
 		</div>
 	);
 }
