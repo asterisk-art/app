@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Canvas } from './Canvas';
@@ -13,9 +13,14 @@ export function Editor() {
 	const [canvas, setCanvas] = useState([]); // The layers which have been set onto the canvas
 
 	return (
-		<Fragment>
+		<div
+			css={{
+				display: 'grid',
+				gridTemplateColumns: '1fr 18.75rem',
+			}}
+		>
 			<Canvas canvas={canvas} />
 			<Sidebar phrase={phrase} setPhrase={setPhrase} canvas={canvas} setCanvas={setCanvas} />
-		</Fragment>
+		</div>
 	);
 }

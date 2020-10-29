@@ -5,14 +5,14 @@ import { jsx } from '@emotion/core';
 
 import { getSettings } from '../storage';
 
-export function Example2({ color, dotsAmount }) {
+export function Example3({ circleAmount, dotsAmount }) {
 	const SETTINGS = getSettings();
 
 	return (
 		<div>
-			An example 2 layer that will use the data that was set in the sidebar and the stored settings
+			An example 3 layer that will use the data that was set in the sidebar and the stored settings
 			<ul>
-				<li>{color}</li>
+				<li>{circleAmount}</li>
 				<li>{dotsAmount}</li>
 				<li>
 					<textarea defaultValue={JSON.stringify(SETTINGS, null, 2)} />
@@ -23,12 +23,13 @@ export function Example2({ color, dotsAmount }) {
 }
 
 export const settings = {
-	name: 'Example 2',
+	name: 'Example 3',
 	config: [
 		{
-			name: 'Color',
-			prop: 'color',
-			type: 'color',
+			name: 'Number of circles',
+			prop: 'circleAmount',
+			type: 'number',
+			max: 10,
 		},
 		{
 			name: 'Amount of dots',

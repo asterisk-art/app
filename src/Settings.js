@@ -4,27 +4,23 @@
 import { useState } from 'react';
 import { jsx } from '@emotion/core';
 
+import { getSettings, writeSettings } from './storage';
+
 export function Settings() {
-	const STORAGE_KEY = 'asterisk-art-settings';
-	const localSettings = localStorage.getItem(STORAGE_KEY)
-		? JSON.parse(localStorage.getItem(STORAGE_KEY))
-		: {
-				colorMode: 'default',
-				manualAdjustments: false,
-		  };
+	const localSettings = getSettings({
+		colorMode: 'default',
+		manualAdjustments: false,
+	});
 	const [colorMode, setColorMode] = useState(localSettings.colorMode);
 	const [manualAdjustments, setManualAdjustments] = useState(localSettings.manualAdjustments);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		localStorage.setItem(
-			STORAGE_KEY,
-			JSON.stringify({
-				colorMode,
-				manualAdjustments,
-			})
-		);
+		writeSettings({
+			colorMode,
+			manualAdjustments,
+		});
 	};
 
 	return (
