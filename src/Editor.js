@@ -1,17 +1,12 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
-import { useState } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Canvas } from './Canvas';
 import { Sidebar } from './Sidebar';
 
-export function Editor() {
-	// we hoist the state here so only sidebar and the canvas is re-rendered when it changes
-	const [phrase, setPhrase] = useState(''); // the phrase we will use to generate our config for each layer
-	const [canvas, setCanvas] = useState([]); // The layers which have been set onto the canvas
-
+export function Editor({ phrase, setPhrase, canvas, setCanvas }) {
 	return (
 		<div
 			css={{

@@ -7,7 +7,12 @@ const STORAGE_KEY = 'asterisk-art-settings';
  *
  * @return {any}               - The data
  */
-export function getSettings(defaultVal = {}) {
+export function getSettings() {
+	const defaultVal = {
+		colorMode: 'default',
+		manualAdjustments: false,
+	};
+
 	const locallyStored = localStorage.getItem(STORAGE_KEY);
 	if (locallyStored) {
 		try {

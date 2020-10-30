@@ -12,31 +12,28 @@ export function Layer({ circleAmount, dotsAmount }) {
 		<div>
 			An example 3 layer that will use the data that was set in the sidebar and the stored settings
 			<ul>
-				<li>{circleAmount}</li>
-				<li>{dotsAmount}</li>
-				<li>
-					<textarea defaultValue={JSON.stringify(SETTINGS, null, 2)} />
-				</li>
+				<li>{JSON.stringify(circleAmount)}</li>
+				<li>{JSON.stringify(dotsAmount)}</li>
+				<li>{JSON.stringify(SETTINGS)}</li>
 			</ul>
 		</div>
 	);
 }
 
-export const settings = {
+export const layerSettings = {
 	name: 'Example 3',
-	config: [
-		{
+	config: {
+		circleAmount: {
 			name: 'Number of circles',
-			prop: 'circleAmount',
 			type: 'number',
+			min: 0,
 			max: 10,
 		},
-		{
+		dotsAmount: {
 			name: 'Amount of dots',
-			prop: 'dotsAmount',
 			type: 'number',
 			min: 1,
 			max: 20,
 		},
-	],
+	},
 };

@@ -22,6 +22,8 @@ export const useTheme = () => {
 };
 
 export function App() {
+	const [phrase, setPhrase] = useState(''); // the phrase we will use to generate our config for each layer
+	const [canvas, setCanvas] = useState([]); // The layers which have been set onto the canvas
 	const [theme, setTheme] = useState(
 		window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 	);
@@ -61,7 +63,18 @@ export function App() {
 				<Router>
 					<Header />
 					<Switch>
-						<Route exact path="/" component={Editor} />
+						<Route
+							exact
+							path="/"
+							component={() => (
+								<Editor
+									phrase={phrase}
+									setPhrase={setPhrase}
+									canvas={canvas}
+									setCanvas={setCanvas}
+								/>
+							)}
+						/>
 						<Route exact path="/about" component={About} />
 						<Route exact path="/settings" component={Settings} />
 					</Switch>

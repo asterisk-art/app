@@ -7,10 +7,7 @@ import { jsx } from '@emotion/core';
 import { getSettings, writeSettings } from './storage';
 
 export function Settings() {
-	const localSettings = getSettings({
-		colorMode: 'default',
-		manualAdjustments: false,
-	});
+	const localSettings = getSettings();
 	const [colorMode, setColorMode] = useState(localSettings.colorMode);
 	const [manualAdjustments, setManualAdjustments] = useState(localSettings.manualAdjustments);
 

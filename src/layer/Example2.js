@@ -12,30 +12,26 @@ export function Layer({ color, dotsAmount }) {
 		<div>
 			An example 2 layer that will use the data that was set in the sidebar and the stored settings
 			<ul>
-				<li>{color}</li>
-				<li>{dotsAmount}</li>
-				<li>
-					<textarea defaultValue={JSON.stringify(SETTINGS, null, 2)} />
-				</li>
+				<li>{JSON.stringify(color)}</li>
+				<li>{JSON.stringify(dotsAmount)}</li>
+				<li>{JSON.stringify(SETTINGS)}</li>
 			</ul>
 		</div>
 	);
 }
 
-export const settings = {
+export const layerSettings = {
 	name: 'Example 2',
-	config: [
-		{
+	config: {
+		color: {
 			name: 'Color',
-			prop: 'color',
 			type: 'color',
 		},
-		{
+		dotsAmount: {
 			name: 'Amount of dots',
-			prop: 'dotsAmount',
 			type: 'number',
 			min: 1,
 			max: 20,
 		},
-	],
+	},
 };
