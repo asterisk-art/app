@@ -8,8 +8,7 @@ import { version } from '../package.json';
 export function About() {
 	return (
 		<div>
-			<h1>About</h1>
-			v{version}
+			<h1>About</h1>v{version}
 		</div>
 	);
 }
