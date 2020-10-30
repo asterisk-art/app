@@ -9,9 +9,13 @@ const STORAGE_KEY = 'asterisk-art-settings';
  */
 export function getSettings(defaultVal = {}) {
 	const locallyStored = localStorage.getItem(STORAGE_KEY);
-	try {
-		return JSON.parse(locallyStored);
-	} catch (_) {
+	if (locallyStored) {
+		try {
+			return JSON.parse(locallyStored);
+		} catch (_) {
+			return defaultVal;
+		}
+	} else {
 		return defaultVal;
 	}
 }

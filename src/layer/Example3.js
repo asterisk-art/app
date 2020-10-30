@@ -5,7 +5,7 @@ import { jsx } from '@emotion/core';
 
 import { getSettings } from '../storage';
 
-export function Example3({ circleAmount, dotsAmount }) {
+export function Layer({ circleAmount, dotsAmount }) {
 	const SETTINGS = getSettings();
 
 	return (

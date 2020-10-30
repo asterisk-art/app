@@ -24,13 +24,9 @@ export function Sidebar({ phrase, setPhrase, canvas, setCanvas }) {
 							},
 						]) => !canvas.map(({ settings: { name } }) => name).includes(name)
 					)
-					.map(([id, { settings, ...rest }]) => (
+					.map(([id, { settings, Layer }]) => (
 						<li key={id}>
-							<button
-								onClick={() =>
-									setCanvas([...canvas, { component: rest[Object.keys(rest)[0]], settings }])
-								}
-							>
+							<button onClick={() => setCanvas([...canvas, { component: Layer, settings }])}>
 								{settings.name}
 							</button>
 						</li>

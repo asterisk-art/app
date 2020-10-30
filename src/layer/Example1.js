@@ -5,7 +5,7 @@ import { jsx } from '@emotion/core';
 
 import { getSettings } from '../storage';
 
-export function Example1({ strokeColor, strokeWidth, lineNumbers }) {
+export function Layer({ strokeColor, strokeWidth, lineNumbers }) {
 	const SETTINGS = getSettings();
 
 	return (
