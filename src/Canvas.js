@@ -7,8 +7,8 @@ export function Canvas({ canvas }) {
 	return (
 		<div>
 			<h2>Canvas</h2>
-			{canvas.map(({ component: Layer, settings: { name } }) => (
-				<Layer key={name} />
+			{canvas.map(({ component: Layer, settings: { name } }, i) => (
+				<Layer key={i} />
 			))}
 		</div>
 	);

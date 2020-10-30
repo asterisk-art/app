@@ -6,6 +6,12 @@ import { jsx } from '@emotion/core';
 import * as layers from './layer';
 
 export function Sidebar({ phrase, setPhrase, canvas, setCanvas }) {
+	const removeLayer = (key) => {
+		const newCanvas = [...canvas];
+		newCanvas.splice(key, 1);
+		setCanvas(newCanvas);
+	};
+
 	return (
 		<aside>
 			<h2>Sidebar</h2>
@@ -15,31 +21,20 @@ export function Sidebar({ phrase, setPhrase, canvas, setCanvas }) {
 			</label>
 			Choose a layer:
 			<ul>
-				{Object.entries(layers)
-					.filter(
-						([
-							_,
-							{
-								settings: { name },
-							},
-						]) => !canvas.map(({ settings: { name } }) => name).includes(name)
-					)
-					.map(([id, { settings, Layer }]) => (
-						<li key={id}>
-							<button onClick={() => setCanvas([...canvas, { component: Layer, settings }])}>
-								{settings.name}
-							</button>
-						</li>
-					))}
+				{Object.entries(layers).map(([id, { settings, Layer }]) => (
+					<li key={id}>
+						<button onClick={() => setCanvas([...canvas, { component: Layer, settings }])}>
+							{settings.name}
+						</button>
+					</li>
+				))}
 			</ul>
 			Your selected layer:
 			<ul>
-				{canvas.map(({ settings: { name, config } }) => (
-					<li key={name}>
+				{canvas.map(({ settings: { name, config } }, i) => (
+					<li key={i}>
 						{name}
-						<button onClick={() => setCanvas([...canvas.filter((c) => c.settings.name !== name)])}>
-							delete
-						</button>
+						<button onClick={() => removeLayer(i)}>delete</button>
 					</li>
 				))}
 			</ul>
