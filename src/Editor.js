@@ -6,7 +6,7 @@ import { jsx } from '@emotion/core';
 import { Canvas } from './Canvas';
 import { Sidebar } from './Sidebar';
 
-export function Editor({ phrase, setPhrase, canvas, setCanvas }) {
+export function Editor({ phrase, canvas, setCanvas }) {
 	return (
 		<div
 			css={{
@@ -15,7 +15,7 @@ export function Editor({ phrase, setPhrase, canvas, setCanvas }) {
 			}}
 		>
 			<Canvas canvas={canvas} />
-			<Sidebar phrase={phrase} setPhrase={setPhrase} canvas={canvas} setCanvas={setCanvas} />
+			<Sidebar phrase={phrase} canvas={canvas} setCanvas={setCanvas} />
 		</div>
 	);
 }
