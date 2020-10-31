@@ -10,7 +10,7 @@ import { LayerSelector, CanvasList, CanvasItem } from './sidebar/';
 
 export function Sidebar({ phrase, canvas, setCanvas }) {
 	const addLayer = (layer) => {
-		layer.userSettings = getConfig(layer.layerSettings.config, phrase);
+		layer.userSettings = getConfig(layer.layerSettings, phrase);
 		setCanvas([...canvas, layer]);
 	};
 

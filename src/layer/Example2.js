@@ -12,7 +12,7 @@ export function Layer({ color, dotsAmount }) {
 		<div>
 			An example 2 layer that will use the data that was set in the sidebar and the stored settings
 			<ul>
-				<li>{JSON.stringify(color)}</li>
+				<li css={{ background: color }}>{JSON.stringify(color)}</li>
 				<li>{JSON.stringify(dotsAmount)}</li>
 				<li>{JSON.stringify(SETTINGS)}</li>
 			</ul>

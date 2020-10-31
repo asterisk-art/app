@@ -44,7 +44,7 @@ export function App() {
 
 	const changePhrase = (phrase) => {
 		const newCanvas = canvas.map(({ layerSettings, userSettings, ...rest }) => ({
-			userSettings: getConfig(layerSettings.config, phrase),
+			userSettings: getConfig(layerSettings, phrase),
 			layerSettings,
 			...rest,
 		}));

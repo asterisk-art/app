@@ -10,9 +10,9 @@ export function Layer({ strokeColor, strokeWidth, lineNumbers }) {
 
 	return (
 		<div>
-			An example 1 layer that will use the data that was set in the sidebar and the stored settings
+			<strong>Example 1</strong>
 			<ul>
-				<li>{JSON.stringify(strokeColor)}</li>
+				<li css={{ background: strokeColor }}>{JSON.stringify(strokeColor)}</li>
 				<li>{JSON.stringify(strokeWidth)}</li>
 				<li>{JSON.stringify(lineNumbers)}</li>
 				<li>{JSON.stringify(SETTINGS)}</li>

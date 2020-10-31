@@ -40,7 +40,9 @@ function getColor(phrase) {
 	const r = Number(hash.toString().slice(0, length)) % 256;
 	const g = Number(hash.toString().slice(length, length * 2)) % 256;
 	const b = Number(hash.toString().slice(length * 2, hash.length)) % 256;
-	return `#${Math.round(r).toString(16)}${Math.round(g).toString(16)}${Math.round(b).toString(16)}`;
+	return `#${Math.round(r).toString(16).padStart(2, '0')}${Math.round(g).toString(16).padStart(2, '0')}${Math.round(b)
+		.toString(16)
+		.padStart(2, '0')}`;
 }
 
 /**
@@ -51,15 +53,17 @@ function getColor(phrase) {
  *
  * @return {object}        - The object the layer expects
  */
-export function getConfig(config, phrase) {
+export function getConfig(layerSettings, phrase) {
 	const newConfig = {};
+	// we make sure each layer gets something unique so it's not all the same look
+	const layerPhrase = `${layerSettings.name}${phrase}`;
 
-	Object.entries(config).forEach(([key, item]) => {
+	Object.entries(layerSettings.config).forEach(([key, item]) => {
 		if (item.type === 'number') {
-			newConfig[key] = getNumber(phrase, item.max, item.min);
+			newConfig[key] = getNumber(layerPhrase, item.max, item.min);
 		}
 		if (item.type === 'color') {
-			newConfig[key] = getColor(phrase);
+			newConfig[key] = getColor(layerPhrase);
 		}
 		// we ignore unsupported types
 	});
