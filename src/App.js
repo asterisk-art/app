@@ -9,8 +9,8 @@ import { About } from './About';
 import { COLORS } from './tokens';
 import { Header } from './Header';
 import { Editor } from './Editor';
+import { Phrase } from './Phrase';
 import { Settings } from './Settings';
-import { Phrase } from './sidebar/Phrase';
 import { getConfig } from './generateConfig';
 
 // The theme context
