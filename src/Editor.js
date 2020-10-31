@@ -8,7 +8,7 @@ import { Sidebar } from './Sidebar';
 
 export function Editor({ phrase, canvas, setCanvas }) {
 	return (
-		<div
+		<main
 			css={{
 				display: 'grid',
 				gridTemplateColumns: '1fr 18.75rem',
@@ -16,6 +16,6 @@ export function Editor({ phrase, canvas, setCanvas }) {
 		>
 			<Canvas canvas={canvas} />
 			<Sidebar phrase={phrase} canvas={canvas} setCanvas={setCanvas} />
-		</div>
+		</main>
 	);
 }

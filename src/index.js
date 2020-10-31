@@ -11,7 +11,7 @@ ReactDOM.render(
 		<Global styles={normalize} />
 		<Global
 			styles={{
-				html: {
+				'html, body': {
 					height: '100%',
 				},
 				body: {

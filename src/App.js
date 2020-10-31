@@ -9,7 +9,7 @@ import { About } from './About';
 import { COLORS } from './tokens';
 import { Header } from './Header';
 import { Editor } from './Editor';
-import { Phrase } from './Phrase';
+import { Footer } from './Footer';
 import { Settings } from './Settings';
 import { getConfig } from './generateConfig';
 
@@ -56,28 +56,28 @@ export function App() {
 		<ThemeContext.Provider value={{ theme, setTheme }}>
 			<Global
 				styles={{
+					textRendering: 'optimizeLegibility',
+					fontKerning: 'auto',
+					MozOsxFontSmoothing: 'grayscale',
+					'#root': {
+						display: 'grid',
+						gridTemplateRows: 'auto 1fr auto',
+						height: '100%',
+					},
 					':root': {
 						...COLORS[theme],
 					},
 				}}
 			/>
-			<main
-				css={{
-					textRendering: 'optimizeLegibility',
-					fontKerning: 'auto',
-					MozOsxFontSmoothing: 'grayscale',
-				}}
-			>
-				<Router>
-					<Header />
-					<Phrase phrase={phrase} changePhrase={changePhrase} />
-					<Switch>
-						<Route exact path="/" component={() => <Editor phrase={phrase} canvas={canvas} setCanvas={setCanvas} />} />
-						<Route exact path="/about" component={About} />
-						<Route exact path="/settings" component={Settings} />
-					</Switch>
-				</Router>
-			</main>
+			<Router>
+				<Header phrase={phrase} changePhrase={changePhrase} />
+				<Switch>
+					<Route exact path="/" component={() => <Editor phrase={phrase} canvas={canvas} setCanvas={setCanvas} />} />
+					<Route exact path="/about" component={About} />
+					<Route exact path="/settings" component={Settings} />
+				</Switch>
+				<Footer />
+			</Router>
 		</ThemeContext.Provider>
 	);
 }

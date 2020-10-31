@@ -21,8 +21,18 @@ export function Sidebar({ phrase, canvas, setCanvas }) {
 	};
 
 	return (
-		<aside>
-			<h2>Sidebar</h2>
+		<aside
+			css={{
+				borderLeft: '2px dashed var(--border)',
+			}}
+		>
+			<h2
+				css={{
+					margin: 0,
+				}}
+			>
+				Sidebar
+			</h2>
 			<LayerSelector layers={layers} addLayer={addLayer} isDisabled={!phrase} />
 			Your selected layer:
 			<List
@@ -52,6 +62,7 @@ export function Sidebar({ phrase, canvas, setCanvas }) {
 						isDragged={isDragged}
 						isSelected={isSelected}
 						index={index}
+						key={index}
 					/>
 				)}
 			/>

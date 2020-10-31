@@ -21,8 +21,8 @@ export function Settings() {
 	};
 
 	return (
-		<div>
-			<h1>Settings</h1>
+		<main>
+			<h2>Settings</h2>
 
 			<form onSubmit={handleSubmit}>
 				<fieldset>
@@ -76,6 +76,6 @@ export function Settings() {
 				</fieldset>
 				<button type="submit">Save</button>
 			</form>
-		</div>
+		</main>
 	);
 }
