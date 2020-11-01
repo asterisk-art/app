@@ -1,7 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-
-import { jsx } from '@emotion/core';
+/** @jsxImportSource @emotion/core */
 
 export function CanvasItem({ removeLayer, name, userSettings, style, restProps, isDragged, isSelected, index }) {
 	return (

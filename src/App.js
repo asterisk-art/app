@@ -1,9 +1,8 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState, useEffect, useContext, createContext } from 'react';
-import { jsx, Global } from '@emotion/core';
+import { Global } from '@emotion/core';
 
 import { About } from './About';
 import { COLORS } from './tokens';

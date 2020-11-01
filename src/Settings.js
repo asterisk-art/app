@@ -1,8 +1,6 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 
 import { useState } from 'react';
-import { jsx } from '@emotion/core';
 
 import { getSettings, writeSettings } from './storage';
 

@@ -1,8 +1,6 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 
 import { useState } from 'react';
-import { jsx } from '@emotion/core';
 
 export function Phrase({ phrase, changePhrase }) {
 	const [phraseVal, setPhrase] = useState(phrase);

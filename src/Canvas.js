@@ -1,7 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-
-import { jsx } from '@emotion/core';
+/** @jsxImportSource @emotion/core */
 
 export function Canvas({ canvas }) {
 	return (

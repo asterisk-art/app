@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 
-import { jsx } from '@emotion/core';
 import { Link, useLocation } from 'react-router-dom';
 
 export function Navigation() {

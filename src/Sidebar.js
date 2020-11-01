@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 
-import { jsx } from '@emotion/core';
 import { List, arrayMove } from 'react-movable';
 
 import * as layers from './layer';
