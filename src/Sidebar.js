@@ -6,9 +6,10 @@ import * as layers from './layer';
 import { getConfig } from './generateConfig';
 import { LayerSelector, CanvasList, CanvasItem } from './sidebar/';
 
-export function Sidebar({ phrase, canvas, setCanvas }) {
+export function Sidebar({ phrase, canvas, setCanvas, regenCanvas }) {
 	const addLayer = (layer) => {
 		layer.userSettings = getConfig(layer.layerSettings, phrase);
+		layer.subPhrase = null;
 		setCanvas([...canvas, layer]);
 	};
 
@@ -16,6 +17,12 @@ export function Sidebar({ phrase, canvas, setCanvas }) {
 		const newCanvas = [...canvas];
 		newCanvas.splice(key, 1);
 		setCanvas(newCanvas);
+	};
+
+	const addSubPhrase = (key, subPhrase) => {
+		const newCanvas = [...canvas];
+		newCanvas[key].subPhrase = subPhrase;
+		regenCanvas(newCanvas, phrase);
 	};
 
 	return (
@@ -45,6 +52,7 @@ export function Sidebar({ phrase, canvas, setCanvas }) {
 					value: {
 						layerSettings: { name },
 						userSettings,
+						subPhrase,
 					},
 					props: { style, ...restProps },
 					isDragged,
@@ -53,7 +61,10 @@ export function Sidebar({ phrase, canvas, setCanvas }) {
 				}) => (
 					<CanvasItem
 						removeLayer={removeLayer}
+						addSubPhrase={addSubPhrase}
+						subPhrase={subPhrase}
 						name={name}
+						phrase={phrase}
 						userSettings={userSettings}
 						style={style}
 						restProps={restProps}

@@ -1,6 +1,22 @@
 /** @jsxImportSource @emotion/core */
 
-export function CanvasItem({ removeLayer, name, userSettings, style, restProps, isDragged, isSelected, index }) {
+import { useState } from 'react';
+
+export function CanvasItem({
+	removeLayer,
+	addSubPhrase,
+	subPhrase,
+	name,
+	phrase,
+	userSettings,
+	style,
+	restProps,
+	isDragged,
+	isSelected,
+	index,
+}) {
+	const [inputPhrase, setInputPhrase] = useState(subPhrase ? subPhrase : '');
+
 	return (
 		<li
 			{...restProps}
@@ -56,7 +72,21 @@ export function CanvasItem({ removeLayer, name, userSettings, style, restProps, 
 				</button>
 				<div>
 					{name}
-					<button onClick={() => removeLayer(index)}>delete</button>
+					<button type="button" onClick={() => removeLayer(index)}>
+						delete
+					</button>
+					<input
+						type="text"
+						placeholder={phrase}
+						value={inputPhrase}
+						onChange={(event) => setInputPhrase(event.target.value)}
+					/>
+					<button type="button" onClick={() => addSubPhrase(index, inputPhrase)}>
+						Save
+					</button>
+					<button type="button" onClick={() => addSubPhrase(index, null)}>
+						Delete phrase
+					</button>
 					<textarea defaultValue={JSON.stringify(userSettings, null, 2)} />
 				</div>
 			</div>

@@ -3,7 +3,7 @@
 import { Canvas } from './Canvas';
 import { Sidebar } from './Sidebar';
 
-export function Editor({ phrase, canvas, setCanvas }) {
+export function Editor({ phrase, canvas, setCanvas, regenCanvas }) {
 	return (
 		<main
 			css={{
@@ -12,7 +12,7 @@ export function Editor({ phrase, canvas, setCanvas }) {
 			}}
 		>
 			<Canvas canvas={canvas} />
-			<Sidebar phrase={phrase} canvas={canvas} setCanvas={setCanvas} />
+			<Sidebar phrase={phrase} canvas={canvas} setCanvas={setCanvas} regenCanvas={regenCanvas} />
 		</main>
 	);
 }

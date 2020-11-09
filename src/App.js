@@ -41,13 +41,18 @@ export function App() {
 		return window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', modeListener);
 	}, []);
 
-	const changePhrase = (phrase) => {
-		const newCanvas = canvas.map(({ layerSettings, userSettings, ...rest }) => ({
-			userSettings: getConfig(layerSettings, phrase),
+	const regenCanvas = (canvas, phrase) => {
+		const newCanvas = canvas.map(({ layerSettings, userSettings, subPhrase, ...rest }) => ({
+			userSettings: getConfig(layerSettings, subPhrase ? subPhrase : phrase),
 			layerSettings,
+			subPhrase,
 			...rest,
 		}));
 		setCanvas(newCanvas);
+	};
+
+	const changePhrase = (phrase) => {
+		regenCanvas(canvas, phrase);
 		setPhrase(phrase);
 	};
 
@@ -71,7 +76,11 @@ export function App() {
 			<Router>
 				<Header phrase={phrase} changePhrase={changePhrase} />
 				<Switch>
-					<Route exact path="/" component={() => <Editor phrase={phrase} canvas={canvas} setCanvas={setCanvas} />} />
+					<Route
+						exact
+						path="/"
+						component={() => <Editor phrase={phrase} canvas={canvas} setCanvas={setCanvas} regenCanvas={regenCanvas} />}
+					/>
 					<Route exact path="/about" component={About} />
 					<Route exact path="/settings" component={Settings} />
 				</Switch>
