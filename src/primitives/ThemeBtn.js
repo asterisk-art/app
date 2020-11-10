@@ -49,13 +49,12 @@ export function ThemeBtn(props) {
 				color: 'transparent',
 				width: '2.2rem',
 				height: '2.2rem',
-				'&:focus': {
+				borderRadius: '100%',
+				'&:focus:not(:focus-visible)': {
 					outline: 'none',
-					boxShadow: '0 0 0 2px var(--bg), 0 0 0 5px var(--focus)',
 				},
-				'&:hover:after': {
-					marginTop: '-0.8rem',
-					marginRight: '-0.4rem',
+				'&:focus-visible': {
+					boxShadow: '0 0 0 3px var(--bg), 0 0 0 5px var(--focus)',
 				},
 				'&:before, &:after': {
 					content: '""',
@@ -73,14 +72,18 @@ export function ThemeBtn(props) {
 					width: theme === 'light' ? 0 : '1.3rem',
 					height: theme === 'light' ? 0 : '1.3rem',
 					border: 'none',
-					marginTop: '-0.5rem',
-					marginRight: '-0.7rem',
+					marginTop: '-15%',
+					marginLeft: '-25%',
 					background: 'var(--bg)',
+				},
+				'&:hover:after': {
+					marginTop: '-25%',
+					marginLeft: '-15%',
 				},
 			}}
 			{...props}
 		>
-			Switch theme
+			Switch between dark and light mode
 			<SunRay rotate={90} visible={theme === 'light'} />
 			<SunRay rotate={120} visible={theme === 'light'} />
 			<SunRay rotate={150} visible={theme === 'light'} />
