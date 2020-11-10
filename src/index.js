@@ -22,6 +22,7 @@ ReactDOM.render(
 					padding: 0,
 					color: 'var(--text)',
 					background: 'var(--bg)',
+					transition: 'background 0.2s ease, color 0.2s ease',
 				},
 				a: {
 					color: 'var(--text)',
