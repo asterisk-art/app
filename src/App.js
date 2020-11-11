@@ -38,7 +38,7 @@ export function App() {
 		};
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', modeListener);
 
-		return window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', modeListener);
+		return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', modeListener);
 	}, []);
 
 	const regenCanvas = (canvas, phrase) => {
