@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 
 import { Canvas } from './Canvas';
 import { Sidebar } from './Sidebar';

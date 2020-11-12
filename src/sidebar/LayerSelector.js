@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 
 export function LayerSelector({ layers, isDisabled, addLayer }) {
 	return (

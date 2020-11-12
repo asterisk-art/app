@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 
 import { useState } from 'react';
 

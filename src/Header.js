@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 
 import { Phrase } from './Phrase';
 import { ThemeBtn } from './primitives/ThemeBtn';

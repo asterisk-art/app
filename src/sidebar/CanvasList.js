@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 
 export function CanvasList({ children, props, isDragged }) {
 	return (

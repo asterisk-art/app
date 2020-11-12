@@ -1,8 +1,8 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState, useEffect, useContext, createContext } from 'react';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 
 import { About } from './About';
 import { COLORS } from './tokens';
