@@ -32,7 +32,13 @@ export function Editor() {
 			}}
 		>
 			<Canvas canvas={canvas} />
-			<Sidebar changePhrase={changePhrase} phrase={phrase} canvas={canvas} setCanvas={setCanvas} regenCanvas={regenCanvas} />
+			<Sidebar
+				changePhrase={changePhrase}
+				phrase={phrase}
+				canvas={canvas}
+				setCanvas={setCanvas}
+				regenCanvas={regenCanvas}
+			/>
 		</main>
 	);
 }

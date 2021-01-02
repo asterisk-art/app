@@ -28,7 +28,7 @@ export function Settings() {
 					<legend>Canvas settings</legend>
 					<ul>
 						<li>
-							<ThemeBtn/>
+							<ThemeBtn />
 						</li>
 						<li>
 							<p id="colorMode">Mode for color generations</p>

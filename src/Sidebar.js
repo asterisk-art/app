@@ -28,9 +28,7 @@ export function Sidebar({ changePhrase, phrase, canvas, setCanvas, regenCanvas }
 
 	return (
 		<aside>
-			<h2>
-				Sidebar
-			</h2>
+			<h2>Sidebar</h2>
 			<Phrase phrase={phrase} changePhrase={changePhrase} />
 			<LayerSelector layers={layers} addLayer={addLayer} isDisabled={!phrase} />
 			Your selected layer:

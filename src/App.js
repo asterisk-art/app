@@ -62,7 +62,7 @@ export function App() {
 					<Navigation />
 				</aside>
 				<Switch>
-					<Route exact path="/" component={Editor}/>
+					<Route exact path="/" component={Editor} />
 					<Route exact path="/about" component={About} />
 					<Route exact path="/settings" component={Settings} />
 				</Switch>

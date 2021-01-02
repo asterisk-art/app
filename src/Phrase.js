@@ -13,11 +13,7 @@ export function Phrase({ phrase, changePhrase }) {
 	return (
 		<label>
 			<span>Phrase</span>
-			<input
-				type="text"
-				value={phraseVal}
-				onChange={(event) => changePhraseVal(event.target.value)}
-			/>
+			<input type="text" value={phraseVal} onChange={(event) => changePhraseVal(event.target.value)} />
 		</label>
 	);
 }
