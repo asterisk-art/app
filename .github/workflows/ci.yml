@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - '**'
+  push:
+    branches:
+      - master
+
+jobs:
+  test-build-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js LTS
+      uses: actions/setup-node@v2
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - uses: actions/cache@v2
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: Node, NPM and yarn versions
+      run: node --version && npm --version && yarn --version
+
+    - run: yarn --frozen-lockfile
+    - run: yarn test
+
+    - run: yarn build
+      if: github.event_name == 'push'
+
+    - name: Deploy site to gh-pages branch
+      if: github.event_name == 'push'
+      uses: alex-page/blazing-fast-gh-pages-deploy@master
+      with:
+        repo-token: ${{ secrets.GH_PAT }}
+        site-directory: build
