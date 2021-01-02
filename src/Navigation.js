@@ -22,17 +22,10 @@ export function Navigation() {
 				}}
 			>
 				{nav.map(({ name, url }) => (
-					<li
-						key={url}
-						css={{
-							display: 'inline-block',
-							margin: '0 0.5rem',
-						}}
-					>
+					<li key={url}>
 						<Link
 							to={url}
 							css={{
-								display: 'inline-block',
 								fontWeight: pathname === url ? 900 : 400,
 								':hover': {
 									textDecoration: 'none',

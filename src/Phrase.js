@@ -11,29 +11,12 @@ export function Phrase({ phrase, changePhrase }) {
 	};
 
 	return (
-		<label
-			css={{
-				display: 'inline-block',
-				margin: '1rem 1rem 0.5rem 1rem',
-			}}
-		>
-			<span
-				css={{
-					display: 'block',
-					fontSize: '1.2rem',
-				}}
-			>
-				Phrase
-			</span>
+		<label>
+			<span>Phrase</span>
 			<input
 				type="text"
 				value={phraseVal}
 				onChange={(event) => changePhraseVal(event.target.value)}
-				css={{
-					maxWidth: 'calc(100vw - 2rem)',
-					width: '30em',
-					fontSize: '2rem',
-				}}
 			/>
 		</label>
 	);

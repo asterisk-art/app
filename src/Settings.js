@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState } from 'react';
+import { ThemeBtn } from './primitives/ThemeBtn';
 
 import { getSettings, writeSettings } from './storage';
 
@@ -26,6 +27,9 @@ export function Settings() {
 				<fieldset>
 					<legend>Canvas settings</legend>
 					<ul>
+						<li>
+							<ThemeBtn/>
+						</li>
 						<li>
 							<p id="colorMode">Mode for color generations</p>
 							<label aria-describedby="colorMode">
