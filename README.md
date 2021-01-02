@@ -1,4 +1,4 @@
-# Asterisk.art App
+# asterisk.art App
 
 <p align="center">
 	<a href="https://circleci.com/gh/asterisk-art/app/tree/main" rel="nofollow">
