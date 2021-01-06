@@ -40,7 +40,7 @@ jobs:
 
     - name: Deploy site to gh-pages branch
       if: github.event_name == 'push'
-      uses: alex-page/blazing-fast-gh-pages-deploy@master
+      uses: alex-page/blazing-fast-gh-pages-deploy@v2.0.0-alpha.1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         site-directory: build
