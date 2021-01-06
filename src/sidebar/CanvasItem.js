@@ -17,6 +17,11 @@ export function CanvasItem({
 }) {
 	const [inputPhrase, setInputPhrase] = useState(subPhrase ? subPhrase : '');
 
+	const handleDeletePhrase = (index) => {
+		addSubPhrase(index, null);
+		setInputPhrase('');
+	};
+
 	return (
 		<li
 			{...restProps}
@@ -84,7 +89,7 @@ export function CanvasItem({
 					<button type="button" onClick={() => addSubPhrase(index, inputPhrase)}>
 						Save
 					</button>
-					<button type="button" onClick={() => addSubPhrase(index, null)}>
+					<button type="button" onClick={() => handleDeletePhrase(index)}>
 						Delete phrase
 					</button>
 					<textarea defaultValue={JSON.stringify(userSettings, null, 2)} />
