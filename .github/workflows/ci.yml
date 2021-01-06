@@ -42,5 +42,5 @@ jobs:
       if: github.event_name == 'push'
       uses: alex-page/blazing-fast-gh-pages-deploy@master
       with:
-        repo-token: ${{ secrets.GH_PAT }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         site-directory: build
