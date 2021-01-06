@@ -8,9 +8,8 @@ import { About } from './About';
 import { COLORS } from './tokens';
 import { Header } from './Header';
 import { Editor } from './Editor';
-import { Footer } from './Footer';
+import { Navigation } from './Navigation';
 import { Settings } from './Settings';
-import { getConfig } from './generateConfig';
 
 // The theme context
 const ThemeContext = createContext();
@@ -23,8 +22,6 @@ export const useTheme = () => {
 };
 
 export function App() {
-	const [phrase, setPhrase] = useState(''); // the phrase we will use to generate our config for each layer
-	const [canvas, setCanvas] = useState([]); // The layers which have been set onto the canvas
 	const [theme, setTheme] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
 	// switch theme mode when os mode changes
@@ -41,21 +38,6 @@ export function App() {
 		return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', modeListener);
 	}, []);
 
-	const regenCanvas = (canvas, phrase) => {
-		const newCanvas = canvas.map(({ layerSettings, userSettings, subPhrase, ...rest }) => ({
-			userSettings: getConfig(layerSettings, subPhrase ? subPhrase : phrase),
-			layerSettings,
-			subPhrase,
-			...rest,
-		}));
-		setCanvas(newCanvas);
-	};
-
-	const changePhrase = (phrase) => {
-		regenCanvas(canvas, phrase);
-		setPhrase(phrase);
-	};
-
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
 			<Global
@@ -65,7 +47,8 @@ export function App() {
 					MozOsxFontSmoothing: 'grayscale',
 					'#root': {
 						display: 'grid',
-						gridTemplateRows: 'auto 1fr auto',
+						gridAutoFlow: 'column',
+						gridTemplateColumns: 'minmax(min-content, 320px)',
 						height: '100%',
 					},
 					':root': {
@@ -74,17 +57,15 @@ export function App() {
 				}}
 			/>
 			<Router>
-				<Header phrase={phrase} changePhrase={changePhrase} />
+				<aside>
+					<Header />
+					<Navigation />
+				</aside>
 				<Switch>
-					<Route
-						exact
-						path="/"
-						component={() => <Editor phrase={phrase} canvas={canvas} setCanvas={setCanvas} regenCanvas={regenCanvas} />}
-					/>
+					<Route exact path="/" component={Editor} />
 					<Route exact path="/about" component={About} />
 					<Route exact path="/settings" component={Settings} />
 				</Switch>
-				<Footer />
 			</Router>
 		</ThemeContext.Provider>
 	);

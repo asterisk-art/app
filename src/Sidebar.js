@@ -5,8 +5,9 @@ import { List, arrayMove } from 'react-movable';
 import * as layers from './layer';
 import { getConfig } from './generateConfig';
 import { LayerSelector, CanvasList, CanvasItem } from './sidebar/';
+import { Phrase } from './Phrase';
 
-export function Sidebar({ phrase, canvas, setCanvas, regenCanvas }) {
+export function Sidebar({ changePhrase, phrase, canvas, setCanvas, regenCanvas }) {
 	const addLayer = (layer) => {
 		layer.userSettings = getConfig(layer.layerSettings, phrase);
 		layer.subPhrase = null;
@@ -26,18 +27,9 @@ export function Sidebar({ phrase, canvas, setCanvas, regenCanvas }) {
 	};
 
 	return (
-		<aside
-			css={{
-				borderLeft: '2px dashed var(--border)',
-			}}
-		>
-			<h2
-				css={{
-					margin: 0,
-				}}
-			>
-				Sidebar
-			</h2>
+		<aside>
+			<h2>Sidebar</h2>
+			<Phrase phrase={phrase} changePhrase={changePhrase} />
 			<LayerSelector layers={layers} addLayer={addLayer} isDisabled={!phrase} />
 			Your selected layer:
 			<List
