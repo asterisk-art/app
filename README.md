@@ -6,4 +6,4 @@
 	</a>
 </p>
 
-> Create art with algorithms test
+> Create art with algorithms
