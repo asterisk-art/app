@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js LTS
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@main
 
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
-    - uses: actions/cache@v2
+    - uses: actions/cache@main
       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -40,7 +40,7 @@ jobs:
 
     - name: Deploy site to gh-pages branch
       if: github.event_name == 'push'
-      uses: alex-page/blazing-fast-gh-pages-deploy@v2.0.0-alpha.1
+      uses: alex-page/blazing-fast-gh-pages-deploy@master
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GH_PAT }}
         site-directory: build
