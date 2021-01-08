@@ -23,10 +23,7 @@
 	"bugs": {
 		"url": "https://github.com/asterisk-art/app/issues"
 	},
-	"license": {
-		"type": "GPL-3.0",
-		"url": "https://github.com/asterisk-art/app/blob/released/LICENSE"
-	},
+	"license": "GPL-3.0",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
