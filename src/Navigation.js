@@ -10,19 +10,20 @@ export function Navigation() {
 		{
 			name: 'New artwork',
 			url: '/new',
-			icon: 'a'
-		}
+			icon: 'a',
+		},
 	];
 
-	const secondaryNav = [{
+	const secondaryNav = [
+		{
 			name: 'Settings',
 			url: '/settings',
-			icon: 'b'
+			icon: 'b',
 		},
 		{
 			name: 'About',
 			url: '/about',
-			icon: 'c'
+			icon: 'c',
 		},
 	];
 
@@ -41,27 +42,35 @@ export function Navigation() {
 	};
 
 	return (
-		<aside css={{
-			background: 'var(--alt-bg)',
-			padding: '3.75rem 2rem'
-		}}>
+		<aside
+			css={{
+				background: 'var(--alt-bg)',
+				padding: '3.75rem 2rem',
+			}}
+		>
 			<header>
-				<h1 css={{
-					fontSize: '1rem',
-					margin: '0',
-					fontWeight: 'medium'
-				}}>
+				<h1
+					css={{
+						fontSize: '1rem',
+						margin: '0',
+						fontWeight: 'medium',
+					}}
+				>
 					<NavIcon src={'z'} active={pathname === '/'} />
-					<Link to={'/'} css={linkStyle}>asterisk.art</Link>
+					<Link to={'/'} css={linkStyle}>
+						asterisk.art
+					</Link>
 				</h1>
 			</header>
-			<hr/>
+			<hr />
 			<nav>
 				<ul css={listStyle}>
 					{mainNav.map(({ name, url, icon }) => (
 						<li key={url}>
 							<NavIcon src={icon} active={pathname === url} />
-							<Link to={url} css={linkStyle}>{name}</Link>
+							<Link to={url} css={linkStyle}>
+								{name}
+							</Link>
 						</li>
 					))}
 				</ul>
@@ -70,7 +79,9 @@ export function Navigation() {
 					{secondaryNav.map(({ name, url, icon }) => (
 						<li key={url}>
 							<NavIcon src={icon} active={pathname === url} />
-							<Link to={url} css={linkStyle}>{name}</Link>
+							<Link to={url} css={linkStyle}>
+								{name}
+							</Link>
 						</li>
 					))}
 				</ul>
