@@ -4,10 +4,10 @@ import { List, arrayMove } from 'react-movable';
 
 import * as layers from './layer';
 import { getConfig } from './generateConfig';
-import { LayerSelector, CanvasList, CanvasItem } from './sidebar/';
+import { LayerSelector, CanvasList, CanvasItem } from './sidebar';
 import { Phrase } from './Phrase';
 
-export function Sidebar({ changePhrase, phrase, canvas, setCanvas, regenCanvas }) {
+export function EditorSidebar({ changePhrase, phrase, canvas, setCanvas, regenCanvas }) {
 	const addLayer = (layer) => {
 		layer.userSettings = getConfig(layer.layerSettings, phrase);
 		layer.subPhrase = null;
