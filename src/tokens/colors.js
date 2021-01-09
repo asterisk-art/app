@@ -2,6 +2,7 @@ export const COLORS = {
 	light: {
 		'--bg': '#fff',
 		'--alt-bg': '#eee',
+		'--primary': '#ED0064',
 		'--text': '#383E48',
 		'--border': '#555',
 		'--info': '#005fcc',
@@ -10,8 +11,9 @@ export const COLORS = {
 		'--focus': '#005fcc',
 	},
 	dark: {
-		'--bg': '#212529',
-		'--alt-bg': '#363a3f',
+		'--bg': '#17181D',
+		'--alt-bg': '#111217',
+		'--primary': '#ED0064',
 		'--text': '#eee',
 		'--border': '#ccc',
 		'--info': '#51a4ff',

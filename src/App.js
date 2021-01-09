@@ -6,7 +6,7 @@ import { Global } from '@emotion/react';
 
 import { About } from './About';
 import { COLORS } from './tokens';
-import { Header } from './Header';
+import { EmptyState } from './EmptyState';
 import { Editor } from './Editor';
 import { Navigation } from './Navigation';
 import { Settings } from './Settings';
@@ -57,12 +57,10 @@ export function App() {
 				}}
 			/>
 			<Router>
-				<aside>
-					<Header />
-					<Navigation />
-				</aside>
+				<Navigation />
 				<Switch>
-					<Route exact path="/" component={Editor} />
+					<Route exact path="/" component={EmptyState} />
+					<Route exact path="/new" component={Editor} />
 					<Route exact path="/about" component={About} />
 					<Route exact path="/settings" component={Settings} />
 				</Switch>
