@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 import { Canvas } from './Canvas';
-import { Sidebar } from './Sidebar';
+import { EditorSidebar } from './EditorSidebar';
 import { getConfig } from './generateConfig';
 
 export function Editor() {
@@ -32,7 +32,7 @@ export function Editor() {
 			}}
 		>
 			<Canvas canvas={canvas} />
-			<Sidebar
+			<EditorSidebar
 				changePhrase={changePhrase}
 				phrase={phrase}
 				canvas={canvas}
