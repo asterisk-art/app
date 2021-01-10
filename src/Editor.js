@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 import { Canvas } from './Canvas';
-import { EditorSidebar } from './EditorSidebar';
+import { Sidebar as EditorSidebar } from './editor-sidebar';
 import { getConfig } from './generateConfig';
 
 export function Editor() {
