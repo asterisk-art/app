@@ -2,6 +2,7 @@ export const COLORS = {
 	light: {
 		'--bg': '#fff',
 		'--alt-bg': '#eee',
+		'--primary': '#ED0064',
 		'--text': '#383E48',
 		'--border': '#555',
 		'--info': '#005fcc',
