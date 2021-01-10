@@ -2,6 +2,7 @@ export const COLORS = {
 	light: {
 		'--bg': '#fff',
 		'--alt-bg': '#eee',
+		'--primary': '#ED0064',
 		'--text': '#383E48',
 		'--border': '#555',
 		'--info': '#005fcc',
@@ -12,6 +13,7 @@ export const COLORS = {
 	dark: {
 		'--bg': '#212529',
 		'--alt-bg': '#363a3f',
+		'--primary': '#ED0064',
 		'--text': '#eee',
 		'--border': '#ccc',
 		'--info': '#51a4ff',

@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState } from 'react';
+import { Btn } from '../primitives/Btn';
 
 export function CanvasItem({
 	removeLayer,
@@ -38,7 +39,7 @@ export function CanvasItem({
 					gridTemplateColumns: '2rem 1fr',
 				}}
 			>
-				<button
+				<Btn
 					data-movable-handle
 					css={{
 						position: 'relative',
@@ -74,24 +75,24 @@ export function CanvasItem({
 					tabIndex={-1}
 				>
 					Drag to reorder
-				</button>
+				</Btn>
 				<div>
 					{name}
-					<button type="button" onClick={() => removeLayer(index)}>
+					<Btn type="button" onClick={() => removeLayer(index)}>
 						delete
-					</button>
+					</Btn>
 					<input
 						type="text"
 						placeholder={phrase}
 						value={inputPhrase}
 						onChange={(event) => setInputPhrase(event.target.value)}
 					/>
-					<button type="button" onClick={() => addSubPhrase(index, inputPhrase)}>
+					<Btn type="button" onClick={() => addSubPhrase(index, inputPhrase)}>
 						Save
-					</button>
-					<button type="button" onClick={() => handleDeletePhrase(index)}>
+					</Btn>
+					<Btn type="button" onClick={() => handleDeletePhrase(index)}>
 						Delete phrase
-					</button>
+					</Btn>
 					<textarea defaultValue={JSON.stringify(userSettings, null, 2)} />
 				</div>
 			</div>

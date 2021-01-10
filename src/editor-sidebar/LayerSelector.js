@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
+import { Btn } from '../primitives/Btn';
+
 export function LayerSelector({ layers, isDisabled, addLayer }) {
 	return (
 		<section>
@@ -7,9 +9,9 @@ export function LayerSelector({ layers, isDisabled, addLayer }) {
 			<ul>
 				{Object.entries(layers).map(([id, { Layer, layerSettings }]) => (
 					<li key={id}>
-						<button onClick={() => addLayer({ Layer, layerSettings })} disabled={isDisabled}>
+						<Btn onClick={() => addLayer({ Layer, layerSettings })} disabled={isDisabled}>
 							{layerSettings.name}
-						</button>
+						</Btn>
 					</li>
 				))}
 			</ul>
