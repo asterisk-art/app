@@ -223,8 +223,10 @@ export const normalize = css`
 	button:-moz-focusring,
 	[type='button']:-moz-focusring,
 	[type='reset']:-moz-focusring,
-	[type='submit']:-moz-focusring {
-		outline: 1px dotted ButtonText;
+	[type='submit']:-moz-focusring,
+	:focus {
+		outline: 3px solid aqua;
+		outline-offset: 2px;
 	}
 
 	/**
